@@ -72,8 +72,6 @@ namespace bifeldy_sd3_wapi_31 {
             Bifeldy.UseSwagger(apiUrlPrefix);
             Bifeldy.UseApiKeyMiddleware();
             Bifeldy.UseJwtMiddleware();
-            // Bifeldy.UseCacheMiddleware();
-            // Bifeldy.UseRequestRateLimiterMiddleware();
 
             app.UseEndpoints(x => x.MapControllers());
         }
