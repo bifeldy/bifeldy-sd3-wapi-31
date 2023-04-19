@@ -13,6 +13,7 @@
 
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.HttpOverrides;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -67,6 +68,9 @@ namespace bifeldy_sd3_wapi_31 {
                     .AllowAnyHeader()
                     .AllowCredentials()
             );
+            app.UseForwardedHeaders(new ForwardedHeadersOptions {
+                ForwardedHeaders = ForwardedHeaders.All
+            });
 
             Bifeldy.InitApp(app);
             Bifeldy.UseSwagger(apiUrlPrefix);
